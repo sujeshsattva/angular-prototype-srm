@@ -1,0 +1,89 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="row-height" >
+  <mat-card *ngIf="showLogin">
+    <mat-card-header>
+       <mat-card-title style="padding-top: 10px;">
+          <img mat-card-image src="assets/images/srmlglogo.png" />
+       </mat-card-title>
+       <mat-card-subtitle style="text-align: center;">
+         Sign in to start your session
+       </mat-card-subtitle>
+    </mat-card-header>
+    <form [formGroup]="authForm" (ngSubmit)="userLogin()">
+    <mat-card-content >
+          <div fxLayout="column">
+            
+              <mat-label class="login-text"><strong>User ID</strong></mat-label>
+                <input  type="text" formControlName="username"   autocomplete="off" class="custom-input" />
+              <div *ngIf="authForm.get('username')?.invalid && 
+                  authForm.get('username')?.errors && 
+                  (authForm.get('username')?.dirty || authForm.get('username')?.touched)">
+                <span class="text-danger"
+                    *ngIf="authForm.get('username')?.hasError('required')">
+                    Please enter User ID
+                </span>
+              </div>
+             
+             <div style="height: 15px;">&nbsp;</div>
+              <mat-label class="login-text"><strong>Password</strong></mat-label>
+              <input  type="password" formControlName="password"   autocomplete="new-password" class="custom-input" />
+             
+                <div *ngIf="authForm.get('password')?.invalid && 
+                    authForm.get('password')?.errors && 
+                    (authForm.get('password')?.dirty || authForm.get('password')?.touched)">
+                  <span class="text-danger"
+                      *ngIf="authForm.get('password')?.hasError('required')">
+                      Please enter Password
+                  </span>
+              </div>
+           
+        </div>
+        <div style="height: 15px;">&nbsp;</div>
+        <div fxLayout="column"> 
+          <button color="primary" type="submit" mat-raised-button class="login-button" [disabled]="authForm.invalid" > Sign In </button>
+          <div style="height: 15px;">&nbsp;</div>
+          <a href="#" class="forgotLink" (click)="switchLogin()" >Forgot Password?</a>
+        </div>
+    </mat-card-content>
+     
+  </form>
+  </mat-card>
+
+  <mat-card *ngIf="!(showLogin)">
+    <mat-card-header>
+      <mat-card-title style="padding-top: 10px;">
+         <img mat-card-image src="assets/images/srmlglogo.png" />
+      </mat-card-title>
+      <mat-card-subtitle style="text-align: center;">
+        Reset Your Password
+      </mat-card-subtitle>
+   </mat-card-header>
+   <form [formGroup]="resetForm" (ngSubmit)="login">
+   <mat-card-content >
+         <div fxLayout="column">
+           
+             <mat-label class="login-text"><strong>User ID</strong></mat-label>
+               <input  type="text" formControlName="username"   autocomplete="off" class="custom-input" />
+             <div *ngIf="resetForm.get('username')?.invalid && 
+             resetForm.get('username')?.errors && 
+                 (resetForm.get('username')?.dirty || resetForm.get('username')?.touched)">
+               <span class="text-danger"
+                   *ngIf="resetForm.get('username')?.hasError('required')">
+                   Please enter User ID
+               </span>
+             </div>
+            
+              <div style="height: 15px;">&nbsp;</div>
+                           
+        </div>
+       <div style="height: 10px;">&nbsp;</div>
+       <div fxLayout="column"> 
+         <button color="primary" type="submit" mat-raised-button class="login-button" [disabled]="resetForm.invalid" > Reset </button>
+         <div style="height: 15px;">&nbsp;</div>
+         <a href="#" class="forgotLink" (click)="switchLogin()" >Already have an Account?</a>
+       </div>
+   </mat-card-content>
+    
+ </form>
+  </mat-card>
+
+</div>

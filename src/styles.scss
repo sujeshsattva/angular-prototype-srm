@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body{
+    background-color: #d2d6de;
+    font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+a{
+    color: #72afd2;
+    text-decoration: none;
+}
+.text-danger{
+    color: red;
+    display: inline-block;
+max-width: 100%;
+margin-bottom: 5px;
+font-weight: 700;
+}
+.custom-input{
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de;
+     
+    height: 34px;    
+    padding-right: 12px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    
+    border: 1px solid #ccc;
+}
+.error.mat-snack-bar-container{
+    background: #cc0000;
+    color: #fff;
+}
+.success.mat-snack-bar-container{
+    background: #038b25;
+    color: #fff;
+}
+.warning.mat-snack-bar-container{
+    background: #eef107;
+    color: #000;
+}
